@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Add User</title>
+        <link rel="stylesheet" type="text/css" href="users.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            function addRow(firstname, lastname, email, phone){
+                $('table tbody').append('<tr><td>'+firstname+'</td><td>'+lastname+'</td><td>'+email+'</td><td>'+phone+'</td></tr>');
+            }
+             $(document).ready(function(){
+
+                $('form').submit(function(){
+                    $(this).serialize();
+                    var firstname = $(this).find('input[name="first_name"]').val();
+                    var lastname = $(this).find('input[name="last_name"]').val();
+                    var email = $(this).find('input[name="emailadd"]').val();
+                    var phone = $(this).find('input[name="phonenum"]').val();
+                    addRow(firstname, lastname, email, phone);
+                    return false;
+                });
+                
+             });
+        </script>
+    </head>
+        <body>
+        <div id="wrapper">
+            <!--Beginning of TABLE-->
+            <table>
+                <tbody>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email Address</th>
+                        <th>Contact #</th>
+                    </tr>
+                </tbody>
+            </table>
+            <!--End of TABLE-->
+            <div id="formbox">
+                <h2>Add User</h2>
+                <!--Beginning of FORM-->
+                <form>
+                    First Name:<input type="text" name="first_name" value="First Name"><br>
+                    Last Name:<input type="text" name="last_name" value="Last Name"><br>
+                    Email Address:<input type="text" name="emailadd" value="Email Address"><br>
+                    Contact No:<input type="text" name="phonenum" value="Phone #"><br>
+                    <input type="submit" value="Add User">
+                </form>
+                <!--End of FORM-->
+            </div>
+        </div> <!--end of wrapper-->
+    </body>
+</html>
